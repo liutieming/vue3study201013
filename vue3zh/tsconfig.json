@@ -1,0 +1,35 @@
+{
+  "include": [
+    "src/**/*.ts"
+    , "src/**/*.tsx"
+    , "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    // 目标语言版本
+    "target": "es6",
+    
+    // 生成代码的模板标准
+    "module": "esnext",
+    
+    // 开启所有严格的类型检查
+    "strict": true,
+  
+    // 模块解析策略, ts默认用node的解析策略, 即相对的方式导入
+    "moduleResolution": "Node",
+  
+    // 允许export=导出，由import from 导入
+    "esModuleInterop": true,
+  
+    // 允许引用没有默认导的模块, 它是使用 vue 必须的.
+    "allowSyntheticDefaultImports": true,
+    
+    // 祛除注释
+    "removeComments": true
+    
+//    // 编译输出文件的目录
+//    "outDir": "./out"
+  }
+}

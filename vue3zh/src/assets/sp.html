@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    span.title {
+      position: absolute;
+      color: #EEF0F5;
+      font-family: "Microsoft Sans Serif";
+      font-size: 3.2vw;
+      z-index: 222;
+      position: fixed;
+      left: 87.5vw;
+      top: 0.8vh;
+    }
+    
+    span.content {
+      position: absolute;
+      color: black;
+      font-family: "Microsoft Sans Serif";
+      font-size: 4.6vw;
+      z-index: 11;
+    }
+
+    span.contentChinese {
+      position: absolute;
+      color: black;
+      font-family: "Microsoft Sans Serif";
+      font-size: 4.4vw;
+      z-index: 11;
+    }
+    
+    span.approval {
+      position: absolute;
+      color: #90939D;
+      font-family: "Microsoft Sans Serif";
+      font-size: 3.9vw;
+      z-index: 11;
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0">
+<img src="./bkg.jpg" alt=""
+     style="
+       width: 100vw;
+       position: absolute;
+       left: 0;
+       top: 0;
+       z-index: 2;
+     "
+>
+<img src="./bkg-title.jpg" alt=""
+     style="
+       width: 100vw;
+       position: fixed;
+       top: 0;
+       z-index: 111;
+     "
+>
+
+<div class=""
+     style="
+       position: fixed;
+       top: 0;
+       width: 10vw;
+       height: 10vh;
+       /*border: 1px solid black;*/
+       z-index: 222;
+     "
+     onclick="location='./sp-bak.html'"
+>
+
+</div>
+
+<span style="
+      "
+      class="title"
+      id="titleTime"
+>
+  14:39
+</span>
+
+<span id="spbh"
+      class="content"
+      style="
+        left: 31.5vw;
+        top:  27.2vh;
+      "
+>
+  审批编号XXXX
+</span>
+
+<span id="tjsj"
+      class="content"
+      style="
+        left: 31.5vw;
+        top:  31.7vh;
+      "
+>
+  提交时间YYYYY
+</span>
+
+<span id="szbm"
+      class="contentChinese"
+      style="
+        left: 31.5vw;
+        top:  35.9vh;
+      "
+>
+  软件部
+</span>
+
+<span id="rylx"
+      class="contentChinese"
+      style="
+        left: 31.5vw;
+        top:  40.3vh;
+      "
+>
+  企业员工
+</span>
+
+<span id="wcsy"
+      class="contentChinese"
+      style="
+        left: 31.5vw;
+        top:  44.7vh;
+      "
+>
+  市内公出
+</span>
+
+<span id="wcdd"
+      class="contentChinese"
+      style="
+        left: 31.5vw;
+        top:  49.1vh;
+      "
+>
+  云峰街小五路37-1号
+</span>
+
+<span id="kssj"
+      class="content"
+      style="
+        left: 31.5vw;
+        top:  54vh;
+      "
+>
+  2020/11/11 11:33
+</span>
+
+<span id="jssj"
+      class="content"
+      style="
+        left: 31.5vw;
+        top:  58.4vh;
+      "
+>
+  2020/11/11 14:33
+</span>
+
+<span id="wcsc"
+      class="content"
+      style="
+        left: 31.5vw;
+        top:  62.4vh;
+      "
+>
+  2020/11/11 14:33
+</span>
+
+<span id="approval1"
+      class="approval"
+      style="
+        left: 76vw;
+        top:  114.1vh;
+      "
+>
+  11/04 12:11
+</span>
+
+<span id="approval2"
+      class="approval"
+      style="
+        left: 76vw;
+        top:  130.4vh;
+      "
+>
+  11/04 12:11
+</span>
+
+<span id="approval3"
+      class="approval"
+      style="
+        left: 76vw;
+        top:  135.7vh;
+      "
+>
+  11/04 12:11
+</span>
+
+
+<!--#7F8389-->
+
+<script type="text/javascript">
+  function getTime(sp1 = "/", sp2 = ":", deviateTime = 0) {
+    // deviateTime 是偏离时间, 单位小时
+    sp1 = sp1.substr(0, 1);
+    sp2 = sp2.substr(0, 1);
+    let time = new Date().getTime() + deviateTime * 1000 * 60 * 60
+    let date = new Date(time);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    let result = "";
+    
+    day     = day     <= 9 ? "0" + day.toString()     : day.toString();
+    month   = month   <= 9 ? "0" + month.toString()   : month.toString();
+    hour    = hour    <= 9 ? "0" + hour.toString()    : hour.toString()
+    minutes = minutes <= 9 ? "0" + minutes.toString() : minutes.toString();
+    
+    if (sp2.length === 1) {
+      result = date.getFullYear().toString() + sp1 + month + sp1 + day + " " + hour + sp2 + minutes;
+    } else {
+      result = date.getFullYear().toString() + sp1 + month + sp1 + day;
+    }
+    
+    return result;
+  }
+  
+  function setValue(tagId, value) {
+    var elementById = document.getElementById(tagId);
+    console.log('......', elementById);
+    elementById.innerHTML = value
+  }
+
+  getTime('', "", 30);
+  
+  setValue("titleTime", getTime('', ":").substr(9, 5));
+  setValue("spbh", getTime('', "") + '0173');
+  
+  setValue("tjsj", getTime('/', ':', -1.2)
+    .replace('/0', '/')
+    .replace('/0', '/')
+  );
+  setValue("kssj", getTime('/', ':', -0.4)
+    .replace('/0', '/')
+    .replace('/0', '/')
+  );
+  setValue("jssj", getTime('/', ':', 3.6)
+    .replace('/0', '/')
+    .replace('/0', '/')
+  );
+  
+  setValue("wcsc", "4小时");
+  
+  setValue("approval1", getTime('/', ":", -1.2).substr(5,22));
+  setValue("approval2", getTime('/', ":", -1.2).substr(5,22));
+  setValue("approval3", getTime('/', ":", -1.2).substr(5,22));
+
+</script>
+
+
+</body>
+</html>
