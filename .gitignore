@@ -1,0 +1,31 @@
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# node dependency ignore
+## 当前目录下
+/node_modules
+## 所有目录下
+*/node_modules/
+
+
+# maven ignore
+target/
+*.jar
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
